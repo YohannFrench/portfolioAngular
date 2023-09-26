@@ -1,3 +1,23 @@
-<app-header></app-header>
+<mat-sidenav-container>
+    <mat-sidenav #sidenav role="navigation">
+        <div class="sidenav-container">
+            <button class="cross-button" (click)="sidenav.toggle()">
+                <mat-icon>highlight_off</mat-icon>
+            </button>
+            <div class="buttons">
+                <button mat-button *ngFor="let button of buttonsMenu">
+                    {{button}}
+                </button>
+            </div>
+        </div>
+    </mat-sidenav>
+    <!-- Body -->
+    <mat-sidenav-content>
+        <app-header (sidenavToggle)="toggleSideNav($event)"></app-header>
 
-<app-portfolio></app-portfolio>
+        <main>
+            <app-portfolio></app-portfolio>
+        </main>
+    </mat-sidenav-content>
+    
+</mat-sidenav-container>

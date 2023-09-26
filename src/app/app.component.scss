@@ -1,0 +1,37 @@
+mat-sidenav-container, mat-sidenav-content, mat-sidenav{
+    height: 100%;
+}
+
+mat-sidenav{
+    width: 250px;
+
+    .sidenav-container{
+
+        .cross-button{
+            background-color: transparent;
+            border: none;
+            color: white;
+            cursor: pointer;
+            padding: 10px;
+
+            mat-icon{
+                &:hover,&:active{
+                    border-radius: 50%;
+                    background-color: rgba(255,255,255,0.9);
+                    color: black;
+                }
+            }
+        }
+        
+        .buttons{
+            display: flex;
+            flex-direction: column;
+        }
+    }
+}
+
+
+
+main{
+    padding: 10px;
+}

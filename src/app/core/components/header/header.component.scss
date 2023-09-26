@@ -1,0 +1,44 @@
+.show{
+    display: block;
+}
+
+.hide{
+    display: none;
+}
+
+mat-toolbar{
+    border-radius: 4px;
+
+    .logo{
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+    
+        p{
+            margin: 0;
+            margin-left: 20px;
+            padding: 5px 14px;
+            border: 2px solid whitesmoke;
+            border-radius: 50%;
+        }
+    }
+    
+    .navigation-menu{
+        width: 100%;
+        display: flex;
+        justify-content: end;
+
+        .button{
+            font-size: 16px;
+            font-weight: bold;
+            margin-right: 15px;
+        }
+    
+        @media (min-width: 720px) {
+            .button{
+                margin-right: 40px;
+            }
+        }
+    }
+}
+

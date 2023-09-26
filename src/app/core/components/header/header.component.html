@@ -1,1 +1,13 @@
-<p>header works!</p>
+<mat-toolbar color="primary">
+    <div class="logo">
+        <p>Y</p>
+    </div>
+    <div [ngClass]="mobileSize ? 'hide' : 'navigation-menu'">
+        <button mat-button class="button" *ngFor="let button of buttons" (click)="onScroll()">{{button}}</button>
+    </div>
+    <div [ngClass]="mobileSize ? 'navigation-menu' : 'hide'">
+        <button mat-icon-button (click)="onToggleSidenav()">
+            <mat-icon class="mat-18">menu</mat-icon>
+        </button>
+    </div>
+</mat-toolbar>
