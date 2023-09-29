@@ -17,7 +17,7 @@ mat-toolbar{
         p{
             margin: 0;
             margin-left: 20px;
-            padding: 5px 14px;
+            padding: 5px 9px;
             border: 2px solid whitesmoke;
             border-radius: 50%;
         }
@@ -26,7 +26,7 @@ mat-toolbar{
     .navigation-menu{
         width: 100%;
         display: flex;
-        justify-content: end;
+        justify-content: flex-end;
 
         .button{
             font-size: 16px;

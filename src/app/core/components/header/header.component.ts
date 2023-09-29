@@ -18,7 +18,9 @@ export class HeaderComponent implements OnInit{
       'About',
       'Projects',
       'Contact'
-    ]
+    ];
+
+    this.onResize();
   }
 
   onToggleSidenav() {
@@ -29,8 +31,9 @@ export class HeaderComponent implements OnInit{
     
   }
 
-  @HostListener('window:resize') onResize(){
+  @HostListener('window:resize') onResize(): void{
     screen.width <= 480 ? this.mobileSize = true : this.mobileSize = false;
+    console.log(this.mobileSize)
   }
 
 }
