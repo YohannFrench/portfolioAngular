@@ -3,7 +3,12 @@
 :root{
     --headline-1: clamp(1.5rem, 1.2798rem + 1.1009vw, 3rem);
     --headline-2: clamp(1.125rem, 0.9599rem + 0.8257vw, 2.25rem);
-    --headline-3: clamp(0.875rem, 0.7833rem + 0.4587vw, 1.5rem);}
+    --headline-3: clamp(0.875rem, 0.7833rem + 0.4587vw, 1.5rem);
+    --p: clamp(0.75rem, 0.7133rem + 0.1835vw, 1rem);
+}
+
+$breakpoint_tablet : 48em; //768px
+
 
 *{font-family: 'Manrope', sans-serif!important;}
 .material-icons{
@@ -14,8 +19,44 @@ html, body { height: 100%; }
 // body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 body { margin: 0;}
 
-.center-container{
+@media (min-width: $breakpoint_tablet) {
+    .grid-two-columns{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: clamp(0.625rem, 0.4415rem + 0.9174vw, 1.875rem);
+    }
+}
+
+.container-inline{
+    display: flex;
+}
+
+.container-column{
     display: flex;
     flex-direction: column;
+
+}
+
+.center{
+    justify-content: center;
     align-items: center;
 }
+
+// .inline-start{
+//     justify-content: flex-start;
+// }
+
+// .inline-end{
+//     justify-content: flex-end;
+// }
+
+// .column-start{
+//     align-items: flex-start;
+// }
+
+// .column-end{
+//     align-items: flex-end;
+// }
+
+
+

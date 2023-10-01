@@ -1,20 +1,23 @@
-<mat-card>
-    <div class="center-container">
+<mat-card class="container-column center">
+    <div class="grid-two-columns">
         <div class="container-image">
             <img mat-card-image src="assets/yohann_rogner.png" alt="Image de Yohann Coueraud">
         </div>
-        <mat-card-header>
-          <mat-card-title><h1>Yohann Coueraud</h1></mat-card-title>
-          <mat-card-subtitle><h2>Web developper engineer</h2></mat-card-subtitle>
-        </mat-card-header>
-        <mat-card-content>
-          <h3>Adaptable | Curious | Nice</h3>
-          <p>Discover my project !</p>
-        </mat-card-content>
-        <mat-card-actions> 
-            <button mat-button><mat-icon>arrow_downward</mat-icon></button>
-        </mat-card-actions>
+        <div class="container-column column-start">
+          <mat-card-header>
+            <mat-card-title><h1>Yohann Coueraud</h1></mat-card-title>
+            <mat-card-subtitle><h2>Web developper engineer</h2></mat-card-subtitle>
+            <mat-card-subtitle><h3>Adaptable | Relationnal | Curious </h3></mat-card-subtitle>
+          </mat-card-header>
+        </div>
     </div>
-
+    <div class="container-column center bottom">
+      <mat-card-content>
+        <p><b>Discover my projects !</b></p>
+      </mat-card-content>
+      <mat-card-actions> 
+          <button mat-button (click)="scrollToProjects()"><mat-icon>arrow_downward</mat-icon></button>
+      </mat-card-actions>
+    </div>
 </mat-card>
   

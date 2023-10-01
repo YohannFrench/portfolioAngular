@@ -15,4 +15,11 @@ export class AppComponent {
     this.sidenav.toggle();
     this.buttonsMenu = buttons;
   }
+
+  goToComponent() {
+    const component = document.getElementById('componentProjects');
+
+    component ? component.scrollIntoView({behavior: 'smooth'}) : console.error('Component not found');
+    
+  }
 }

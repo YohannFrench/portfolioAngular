@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 
 @Component({
   selector: 'app-presentation',
@@ -6,5 +6,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./presentation.component.scss']
 })
 export class PresentationComponent {
+  @Output() scrollingToComponent = new EventEmitter<boolean>(false);
 
+  scrollToProjects(){
+    this.scrollingToComponent.emit(true);
+  }
 }

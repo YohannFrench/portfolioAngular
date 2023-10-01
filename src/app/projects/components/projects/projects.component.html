@@ -1,1 +1,30 @@
-<p>projects works!</p>
+<mat-card class="container-column center">
+  <mat-card-header>
+    <mat-card-title><h1>My projects</h1></mat-card-title>
+  </mat-card-header>
+  <div class="container-column center bottom">
+    <div class="slider">
+      <div class="slide" *ngFor="let project of projects"  [tabIndex]="project.index" [slot]="project.status">
+        <div class="article">
+          <div class="info has-text-centered">
+            <img class="image_zoom" style="border-radius: 10px 10px 0 0;" [src]="project.imageUrl">
+          </div>
+          <div class="px-2">
+            <p class="descript mt-2 mb-4">
+              {{project.description}}
+            </p>
+            
+          </div>
+          <div class="is-flex is-justify-content-center is-align-items-center">
+            <a class="button is-primary is-small" [href]="project.link" target="_blank">{{project.name_link}}</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <mat-card-actions> 
+        <button mat-button (click)="slideLeft()"><mat-icon>arrow_left</mat-icon></button>
+        
+        <button mat-button (click)="slideRight()"><mat-icon>arrow_right</mat-icon></button>
+    </mat-card-actions>
+  </div>
+</mat-card>

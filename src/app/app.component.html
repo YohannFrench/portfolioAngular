@@ -14,10 +14,9 @@
     <!-- Body -->
     <mat-sidenav-content>
         <app-header (sidenavToggle)="toggleSideNav($event)"></app-header>
-
         <main>
-           <app-presentation></app-presentation>
-           <app-projects></app-projects>
+           <app-presentation (scrollingToComponent)="goToComponent()"></app-presentation>
+           <app-projects id="componentProjects"></app-projects>
            <app-contact></app-contact>
         </main>
     </mat-sidenav-content>
