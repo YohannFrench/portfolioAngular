@@ -29,7 +29,7 @@ export class ProjectsComponent implements OnInit{
 
   projects!: Project[];
   activeIndex = 2;
-  transitionState = 'behind';
+  transitionState = '';
 
   ngOnInit(): void {
     this.projects = [
@@ -75,52 +75,79 @@ export class ProjectsComponent implements OnInit{
       afterNextSlide = document.querySelector(`[tabIndex="${afterNextIndex}"]`);
 
       console.log(currentSlide, nextSlide, behindSlide, afterNextSlide)
+      nextSlide ? nextSlide.slot = "middle" : '';
+  
+      if (behindSlide) {
+        console.log("true");
+        behindSlide.slot = "behind";
+        behindSlide.animate([
+            // Keyframes for the animation
+            {scale: 0.5, opacity: 1},
+            {scale: 0.25, opacity: 0},
+            {scale: 0, opacity: 0}
+          ], {
+            // Animation duration in milliseconds
+            duration: 1000,
+            // Animation timing function (e.g., ease, linear)
+            easing: "ease-in-out",
+            // Number of iterations (1 = one time, 2 = twice, etc.)
+            iterations: 1
+          }
+        );   
+        console.log(behindSlide);
+      }
 
-    currentSlide ? currentSlide.slot = "left" : '';
-    nextSlide ? nextSlide.slot = "middle" : '';
-
-    if (behindSlide) {
-      console.log("true");
-      behindSlide.slot = "behind";
-      behindSlide.animate([
-          // Keyframes for the animation
-          {scale: 0.5, opacity: 1},
-          {scale: 0.25, opacity: 0},
-          {scale: 0, opacity: 0}
-        ], {
-          // Animation duration in milliseconds
-          duration: 1000,
-          // Animation timing function (e.g., ease, linear)
-          easing: "ease-in-out",
-          // Number of iterations (1 = one time, 2 = twice, etc.)
-          iterations: 1
-        }
-      );   
-      console.log(behindSlide);
-    }
-    if (afterNextSlide) {
-      console.log("true");
-      afterNextSlide.slot = "right";
-      afterNextSlide.animate([
-          // Keyframes for the animation
-          {scale: 0, opacity: 0},
-          {scale: 0.25, opacity: 0},
-          {scale: 0.5, opacity: 1}
-        ], {
-          // Animation duration in milliseconds
-          duration: 1000,
-          // Animation timing function (e.g., ease, linear)
-          easing: "ease-in-out",
-          // Number of iterations (1 = one time, 2 = twice, etc.)
-          iterations: 1
-        }
-      );  
-      console.log(afterNextSlide);
- 
+    if (this.transitionState === 'left') {
+      currentSlide ? currentSlide.slot = "left" : '';
+      
+      if (afterNextSlide) {
+        console.log("true");
+        afterNextSlide.slot = "right";
+        afterNextSlide.animate([
+            // Keyframes for the animation
+            {scale: 0, opacity: 0},
+            {scale: 0.25, opacity: 0},
+            {scale: 0.5, opacity: 1}
+          ], {
+            // Animation duration in milliseconds
+            duration: 1000,
+            // Animation timing function (e.g., ease, linear)
+            easing: "ease-in-out",
+            // Number of iterations (1 = one time, 2 = twice, etc.)
+            iterations: 1
+          }
+        );  
+        console.log(afterNextSlide);
+   
+      }
+    } else {
+      currentSlide ? currentSlide.slot = "right" : '';
+      
+      if (afterNextSlide) {
+        console.log("true");
+        afterNextSlide.slot = "left";
+        afterNextSlide.animate([
+            // Keyframes for the animation
+            {scale: 0, opacity: 0},
+            {scale: 0.25, opacity: 0},
+            {scale: 0.5, opacity: 1}
+          ], {
+            // Animation duration in milliseconds
+            duration: 1000,
+            // Animation timing function (e.g., ease, linear)
+            easing: "ease-in-out",
+            // Number of iterations (1 = one time, 2 = twice, etc.)
+            iterations: 1
+          }
+        );  
+        console.log(afterNextSlide);
+   
+      }
     }
   }
 
   slideLeft(){
+    this.transitionState = 'left';
     const slides = document.querySelectorAll('.slide');
     console.log(slides);
     const nextIndex = this.activeIndex + 1 <= slides.length ? this.activeIndex + 1 : 1,
@@ -141,6 +168,8 @@ export class ProjectsComponent implements OnInit{
   }
 
   slideRight(){
+    this.transitionState = 'right';
+
     const slides = document.querySelectorAll('.slide');
     console.log(slides);
     const nextIndex = this.activeIndex - 1 >= 1 ? this.activeIndex - 1 : slides.length,
