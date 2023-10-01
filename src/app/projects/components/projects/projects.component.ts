@@ -29,7 +29,7 @@ export class ProjectsComponent implements OnInit{
 
   projects!: Project[];
   activeIndex = 2;
-  transitionState = '';
+  transitionState = ''; 
 
   ngOnInit(): void {
     this.projects = [
@@ -68,13 +68,51 @@ export class ProjectsComponent implements OnInit{
     ];
   }
 
-  setAnimations(activeIndex:number, nextIndex:number, behind:number, afterNextIndex:number){
+  slideLeft(){
+    this.transitionState = 'left';
+    const slides = document.querySelectorAll('.slide');
+    
+    const nextIndex = this.activeIndex + 1 <= slides.length ? this.activeIndex + 1 : 1,
+    behind = this.activeIndex - 1 >= 1 ? this.activeIndex - 1 : slides.length
+
+    var afterNextIndex = nextIndex + 1;
+    if (afterNextIndex === slides.length + 1) {
+      afterNextIndex = 1;
+    } else if(afterNextIndex === slides.length + 2){
+      afterNextIndex = 2;
+    }
+
+    this.setAnimations(this.activeIndex,nextIndex, behind, afterNextIndex)
+
+    this.activeIndex = nextIndex;
+  }
+
+  slideRight(){
+    this.transitionState = 'right';
+
+    const slides = document.querySelectorAll('.slide');
+    
+    const nextIndex = this.activeIndex - 1 >= 1 ? this.activeIndex - 1 : slides.length,
+    behind = this.activeIndex + 1 <= slides.length ? this.activeIndex + 1 : 1
+
+    var afterNextIndex = nextIndex - 1;
+    if (afterNextIndex === 0) {
+      afterNextIndex = slides.length;
+    } else if(afterNextIndex === -1){
+      afterNextIndex = slides.length - 1;
+    }
+
+    this.setAnimations(this.activeIndex,nextIndex, behind, afterNextIndex)
+    
+    this.activeIndex = nextIndex;
+  }
+
+  private setAnimations(activeIndex:number, nextIndex:number, behind:number, afterNextIndex:number){
     const currentSlide = document.querySelector(`[tabIndex="${activeIndex}"]`),
       nextSlide = document.querySelector(`[tabIndex="${nextIndex}"]`),
       behindSlide = document.querySelector(`[tabIndex="${behind}"]`),
       afterNextSlide = document.querySelector(`[tabIndex="${afterNextIndex}"]`);
 
-      console.log(currentSlide, nextSlide, behindSlide, afterNextSlide)
       nextSlide ? nextSlide.slot = "middle" : '';
   
       if (behindSlide) {
@@ -99,7 +137,7 @@ export class ProjectsComponent implements OnInit{
 
     if (this.transitionState === 'left') {
       currentSlide ? currentSlide.slot = "left" : '';
-      
+
       if (afterNextSlide) {
         console.log("true");
         afterNextSlide.slot = "right";
@@ -144,48 +182,5 @@ export class ProjectsComponent implements OnInit{
    
       }
     }
-  }
-
-  slideLeft(){
-    this.transitionState = 'left';
-    const slides = document.querySelectorAll('.slide');
-    console.log(slides);
-    const nextIndex = this.activeIndex + 1 <= slides.length ? this.activeIndex + 1 : 1,
-    behind = this.activeIndex - 1 >= 1 ? this.activeIndex - 1 : slides.length
-
-    var afterNextIndex = nextIndex + 1;
-    if (afterNextIndex === slides.length + 1) {
-      afterNextIndex = 1;
-    } else if(afterNextIndex === slides.length + 2){
-      afterNextIndex = 2;
-    }
-
-    console.log(this.activeIndex,nextIndex, behind, afterNextIndex)
-
-    this.setAnimations(this.activeIndex,nextIndex, behind, afterNextIndex)
-
-    this.activeIndex = nextIndex;
-  }
-
-  slideRight(){
-    this.transitionState = 'right';
-
-    const slides = document.querySelectorAll('.slide');
-    console.log(slides);
-    const nextIndex = this.activeIndex - 1 >= 1 ? this.activeIndex - 1 : slides.length,
-    behind = this.activeIndex + 1 <= slides.length ? this.activeIndex + 1 : 1
-
-    var afterNextIndex = nextIndex - 1;
-    if (afterNextIndex === 0) {
-      afterNextIndex = slides.length;
-    } else if(afterNextIndex === -1){
-      afterNextIndex = slides.length - 1;
-    }
-
-    console.log(this.activeIndex,nextIndex, behind, afterNextIndex)
-
-    this.setAnimations(this.activeIndex,nextIndex, behind, afterNextIndex)
-    
-    this.activeIndex = nextIndex;
   }
 }
