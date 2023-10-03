@@ -6,18 +6,21 @@
     <div class="slider">
       <div class="slide" *ngFor="let project of projects"  [tabIndex]="project.index" [slot]="project.status">
         <div class="article">
-          <div class="info has-text-centered">
+          <div>
             <img class="image_zoom" style="border-radius: 10px 10px 0 0;" [src]="project.imageUrl">
           </div>
-          <div class="px-2">
-            <p class="descript mt-2 mb-4">
-              {{project.description}}
-            </p>
-            
+          <div class="content-article">
+            <div>
+              <p>
+                {{project.description}}
+              </p>
+              
+            </div>
+            <div>
+              <a [href]="project.link" target="_blank">{{project.name_link}}</a>
+            </div>
           </div>
-          <div class="is-flex is-justify-content-center is-align-items-center">
-            <a class="button is-primary is-small" [href]="project.link" target="_blank">{{project.name_link}}</a>
-          </div>
+
         </div>
       </div>
     </div>

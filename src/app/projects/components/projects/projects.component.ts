@@ -53,7 +53,7 @@ export class ProjectsComponent implements OnInit{
         index: '3',
         status: 'right',
         imageUrl: 'assets/fireflylab_1.png',
-        description: "Front-end and back-end of the website with Laravel, React JS, leaflet and SQL. It's the continuation of the figma designs. <br>I was like a project manager and a technical manager on this mission for my final internship. <br>", 
+        description: "Front-end and back-end of the website with Laravel, React JS, leaflet and SQL. It's the continuation of the figma designs. I was like a project manager and a technical manager on this mission for my final internship. <br>", 
         link: 'https://fireflyenergylab.com/',
         name_link: 'LINK'
       },

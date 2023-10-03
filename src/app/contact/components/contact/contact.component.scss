@@ -1,0 +1,28 @@
+mat-card{
+    margin-top: 10px;
+    padding: 15px;
+  }
+
+mat-card-footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    a{
+        width: 95%;
+        font-weight: bold;
+        text-align: center;
+        text-decoration: none;
+        color: #e7e7e7;
+        background-color: #4a4a4a;
+        border-bottom: 1px solid #7c7c7c;
+        padding: 15px 0px;
+        margin-bottom: 10px;
+
+        &:hover{
+            background-color: #616161;
+            border-bottom: 1px solid #b6b6b6;
+        }
+    }
+}

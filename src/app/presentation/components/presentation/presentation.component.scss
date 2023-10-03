@@ -38,6 +38,9 @@ h3{
     }
 }
 
+.column-start{
+   align-items: center;
+}
 @media (min-width: $breakpoint_tablet) {
     .column-start{
         justify-content: center;

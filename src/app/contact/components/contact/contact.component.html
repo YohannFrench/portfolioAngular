@@ -1,1 +1,31 @@
-<p>contact works!</p>
+<!-- <mat-card>
+    <form class="formContact" [formGroup]="contactForm" (ngSubmit)="onSubmit()">
+      
+        <mat-form-field>
+          <mat-label>Email</mat-label>
+          <input matInput color="white" formControlName="email">
+          <mat-error>{{getFormControlError(emailCtrl)}}</mat-error>
+        </mat-form-field>
+      
+        <mat-form-field>
+            <mat-label>Description</mat-label>
+            <textarea matInput formControlName="description" rows="4" placeholder="Saisissez votre description"></textarea>
+            <mat-error>{{getFormControlError(descriptionCtrl)}}</mat-error>
+        </mat-form-field>          
+      
+        <mat-card-actions>
+            <button mat-raised-button color="primary" type="submit">Envoyer</button>
+        </mat-card-actions>
+    </form>
+      
+</mat-card> -->
+
+
+<mat-card>
+    <mat-card-footer>
+        <a href="mailto:yohann.coueraud@2023.icam.fr" title="Ouverture boîte mail">E-mail</a>
+        <a href="https://github.com/YohannFrench" target="_blank" rel="noopener noreferrer" title="(Nouvelle fenêtre)">Github</a>
+        <a href="https://www.linkedin.com/in/yohann-coueraud/" target="_blank" rel="noopener noreferrer" title="(Nouvelle fenêtre)">LinkedIn</a>
+
+    </mat-card-footer>
+</mat-card>
